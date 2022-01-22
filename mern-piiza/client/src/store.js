@@ -7,7 +7,7 @@ import { getAllPizzasReducer , addPizzaReducer, getPizzaByIdReducer, editPizzaRe
 import { cartReducer } from './reducers/cartReducer'
 import { registerUserReducer } from './reducers/userReducer'
 import { loginUserReducer } from './reducers/userReducer'
-import { placeOrderReducer, getUserOrdersReducer } from './reducers/orderReducer'
+import { placeOrderReducer, getUserOrdersReducer, getAllOrdersReducer } from './reducers/orderReducer'
 
 const finalReducer =combineReducers({
     getAllPizzasReducer : getAllPizzasReducer,
@@ -19,6 +19,7 @@ const finalReducer =combineReducers({
     addPizzaReducer:addPizzaReducer,
     getPizzaByIdReducer:getPizzaByIdReducer,
     editPizzaReducer:editPizzaReducer,
+    getAllOrdersReducer:getAllOrdersReducer
     
     
     

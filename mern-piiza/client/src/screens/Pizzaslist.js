@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Loading from '../components/Loading'
 import Error from '../components/Error'
 import Filter from '../components/Filter'
-import { getAllPizzas } from '../actions/pizzaActions'
+import { getAllPizzas, deletePizza } from '../actions/pizzaActions'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 function Pizzaslist() {
@@ -58,7 +58,7 @@ function Pizzaslist() {
 
                             <td>{pizza.category}</td>
                             <td>
-                                <i className='fa fa-trash m-1'></i>
+                                <i className='fa fa-trash m-1' onClick={()=>{dispatch(deletePizza(pizza._id))}}></i>
                                 <Link to={`/admin/editpizza/${pizza._id}`}><i className='fa fa-edit m-1'></i></Link>
 
                             </td>

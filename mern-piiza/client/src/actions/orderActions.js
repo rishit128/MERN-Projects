@@ -29,3 +29,18 @@ export const getUserOrders=()=>async (dispatch,getState)=>{
 
     }
 }
+export const getAllOrders=()=>async (dispatch,getState)=>{
+    const currentUser = getState().loginUserReducer.currentUser
+    dispatch({type:'GET_ALLORDERS_REQUEST'})
+
+    try{
+        const response = await axios.get('/api/orders/getallorders') 
+        
+        console.log(response)
+        
+        dispatch({type:'GET_ALLORDERS_SUCCESS', payload : response.data})
+    }catch(error){
+        dispatch({type:'GET_ALLORDERS_FAILED', payload: error})
+
+    }
+}
