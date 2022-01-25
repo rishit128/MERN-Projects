@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Loading from '../components/Loading'
 import Error from '../components/Error'
 import Filter from '../components/Filter'
-import { getAllOrders } from '../actions/orderActions'
+import { getAllOrders ,deliverOrder} from '../actions/orderActions'
 
 function Orderslist() {
     const dispatch = useDispatch()
@@ -53,7 +53,9 @@ function Orderslist() {
                             <td>{order.userid}</td>
                             <td>{order.orderAmount}</td>
                             <td>{order.createdAt.substring(0,10)}</td>
-                            <td>Status</td>
+                            <td>
+                                {order.isDelivered ? (<h1>Delivered</h1>):(<button className='btn'onClick={()=>{dispatch(deliverOrder(order._id))}}>Deliver</button>)}
+                            </td>
                         </tr>
                     })}
                 </tbody>
